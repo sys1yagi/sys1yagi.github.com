@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | Visible True]]></title>
+  <link href="http://sys1yagi.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://sys1yagi.github.io/"/>
+  <updated>2014-01-07T23:34:33+09:00</updated>
+  <id>http://sys1yagi.github.io/</id>
+  <author>
+    <name><![CDATA[Toshihiro Yagi]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octpressに移行してみる]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/07/first-post/"/>
+    <updated>2014-01-07T23:06:12+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/07/first-post</id>
+    <content type="html"><![CDATA[<p>ブログをGithub Pagesに移行しつつ、<a href="http://octopress.org/">Octopress</a>を導入しました。
+まだテーマとか色々やってないけどOctopress移行をメモしておく。OctopressはMarkdownで書くので捗るわー。</p>
+
+<h2>Github Pagesのリポジトリを作る</h2>
+
+<p><a href="http://pages.github.com/">GitHub Pages</a>を参照してリポジトリ作って下さい。</p>
+
+<h2>Octopressの環境構築</h2>
+
+<p>rmvかrbenvを入れて、ruby1.9.3を入れておく。</p>
+
+<p>まずはOctopressの本体をcloneする。</p>
+
+<p><code>
+git clone git://github.com/imathis/octopress.git octopress
+</code></p>
+
+<p>Octopressのディレクトリに移動し、bundlerをインストールする。その後<code>bundle install</code>で依存するモジュールをインストールする。</p>
+
+<p><code>
+cd octopress
+gem install bundler
+rbenv rehash    # rbenvを使っている場合
+bundle install
+</code></p>
+
+<p>以下のコマンドでデフォルトテーマがインストールされる。</p>
+
+<p><code>
+rake install
+</code></p>
+
+<h2>ブログ本体を生成し、デプロイする</h2>
+
+<p>以下のコマンドでGithub Pagesの設定を行います。リポジトリのURLとかを聞かれます。</p>
+
+<p><code>
+rake setup_github_pages
+</code></p>
+
+<p>その後以下のコマンドでブログ本体を生成します。</p>
+
+<p><code>
+rake generate
+</code></p>
+
+<p>すると<code>_deploy</code>ディレクトリが生成されます。ここにGithub Pagesの.gitが作られます。Github Pagesのリポジトリが空なら以下のコマンドでデプロイできるはずです。</p>
+
+<p><code>
+rake deploy
+</code></p>
+
+<p>もし、リポジトリ内になにかファイルがある場合は、<code>git pull</code>して不要なファイルを削除して下さい。</p>
+
+<h2>新しいエントリを作成する</h2>
+
+<p>新しいエントリを作成するには以下のコマンドを使います。</p>
+
+<p><code>
+rake new_post["エントリ名"]
+</code></p>
+
+<p>以下のパスに新しいMarkdownファイルが生成されます。</p>
+
+<p><code>
+source/_posts/yyyy-mm-dd-エントリ名.markdown
+</code></p>
+
+<p>このファイルを編集して、</p>
+
+<p><code>
+rake generate
+rake deploy
+</code></p>
+
+<p>で新しいエントリをデプロイできます。</p>
+
+<h2>ブログをプレビューする</h2>
+
+<p>書きかけのエントリなどを確認するには以下のコマンドを使います。</p>
+
+<p><code>
+rake preview
+</code></p>
+
+<p>4000番でWEBrickが動くので、</p>
+
+<p><code>
+http://localhost:4000
+</code>
+でプレビューを見れます。</p>
+]]></content>
+  </entry>
+  
+</feed>

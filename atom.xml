@@ -4,7 +4,7 @@
   <title><![CDATA[Visible True]]></title>
   <link href="http://sys1yagi.github.io/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-01-07T23:02:27+09:00</updated>
+  <updated>2014-01-07T23:34:33+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -12,5 +12,109 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octpressに移行してみる]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/07/first-post/"/>
+    <updated>2014-01-07T23:06:12+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/07/first-post</id>
+    <content type="html"><![CDATA[<p>ブログをGithub Pagesに移行しつつ、<a href="http://octopress.org/">Octopress</a>を導入しました。
+まだテーマとか色々やってないけどOctopress移行をメモしておく。OctopressはMarkdownで書くので捗るわー。</p>
+
+<h2>Github Pagesのリポジトリを作る</h2>
+
+<p><a href="http://pages.github.com/">GitHub Pages</a>を参照してリポジトリ作って下さい。</p>
+
+<h2>Octopressの環境構築</h2>
+
+<p>rmvかrbenvを入れて、ruby1.9.3を入れておく。</p>
+
+<p>まずはOctopressの本体をcloneする。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Octopressのディレクトリに移動し、bundlerをインストールする。その後<code>bundle install</code>で依存するモジュールをインストールする。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress
+</span><span class='line'>gem install bundler
+</span><span class='line'>rbenv rehash    # rbenvを使っている場合
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下のコマンドでデフォルトテーマがインストールされる。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ブログ本体を生成し、デプロイする</h2>
+
+<p>以下のコマンドでGithub Pagesの設定を行います。リポジトリのURLとかを聞かれます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p>その後以下のコマンドでブログ本体を生成します。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>すると<code>_deploy</code>ディレクトリが生成されます。ここにGithub Pagesの.gitが作られます。Github Pagesのリポジトリが空なら以下のコマンドでデプロイできるはずです。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>もし、リポジトリ内になにかファイルがある場合は、<code>git pull</code>して不要なファイルを削除して下さい。</p>
+
+<h2>新しいエントリを作成する</h2>
+
+<p>新しいエントリを作成するには以下のコマンドを使います。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["エントリ名"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下のパスに新しいMarkdownファイルが生成されます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>source/_posts/yyyy-mm-dd-エントリ名.markdown </span></code></pre></td></tr></table></div></figure>
+
+
+<p>このファイルを編集して、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で新しいエントリをデプロイできます。</p>
+
+<h2>ブログをプレビューする</h2>
+
+<p>書きかけのエントリなどを確認するには以下のコマンドを使います。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4000番でWEBrickが動くので、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+<p>でプレビューを見れます。</p>
+]]></content>
+  </entry>
   
 </feed>
