@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Visible True]]></title>
+  <title><![CDATA[visible true]]></title>
   <link href="http://sys1yagi.github.io/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-01-08T00:50:50+09:00</updated>
+  <updated>2014-01-08T01:29:17+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -19,7 +19,10 @@
     <updated>2014-01-07T23:06:12+09:00</updated>
     <id>http://sys1yagi.github.io/blog/2014/01/07/first-post</id>
     <content type="html"><![CDATA[<p>ブログをGithub Pagesに移行しつつ、<a href="http://octopress.org/">Octopress</a>を導入しました。
-まだテーマとか色々やってないけどOctopress移行をメモしておく。OctopressはMarkdownで書くので捗るわー。</p>
+OctopressはMarkdownで書くので捗るわー。テーマは<a href="https://github.com/coogie/oscailte">oscailte</a>を使ってます。</p>
+
+<!-- more -->
+
 
 <h2>Github Pagesのリポジトリを作る</h2>
 
