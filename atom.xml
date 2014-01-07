@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Visible True]]></title>
+  <link href="http://sys1yagi.github.io/atom.xml" rel="self"/>
+  <link href="http://sys1yagi.github.io/"/>
+  <updated>2014-01-07T23:02:27+09:00</updated>
+  <id>http://sys1yagi.github.io/</id>
+  <author>
+    <name><![CDATA[Toshihiro Yagi]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
