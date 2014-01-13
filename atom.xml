@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[visible true]]></title>
+  <link href="http://sys1yagi.github.io/atom.xml" rel="self"/>
+  <link href="http://sys1yagi.github.io/"/>
+  <updated>2014-01-09T13:58:01+09:00</updated>
+  <id>http://sys1yagi.github.io/</id>
+  <author>
+    <name><![CDATA[Toshihiro Yagi]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SelectorChapek for Androidでselectorを自動生成する]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/08/android-selector-chapek/"/>
+    <updated>2014-01-08T23:36:30+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/08/android-selector-chapek</id>
+    <content type="html"><![CDATA[<p>カスタムなデザインのボタンを作ろうと思ったら、通常の状態の画像とボタン押下時の画像を用意して、drawableにselectorを定義したxmlを配置して使う事になります。画像の用意はともかく、このselectorのxmlファイルというのがいつもめんどくさいです。大体ググって毎回書き方を調べたりします。</p>
+
+<p>このかったるい作業を簡単にしてくれるのがSelectorChapek for Androidです。</p>
+
+<!-- more -->
+
+
+<h2>SelectorChapek for Androidをインストールする</h2>
+
+<p>SelectorChapek for AndroidはAndroid Studioのpluginです。Github(<a href="https://github.com/inmite/android-selector-chapek">SelectorChapek for Android</a>)を見ればもうそのまんま使い方を書いてありますが解説します。</p>
+
+<p>Android Studioを起動して、[Preference]&ndash;[Plugins]を開き、<code>Browse repositories…</code>を押下してください。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-08-android-selector-chapek/01.png" alt="01" /></p>
+
+<p>Browse Repositoriesで<code>SelectorChapek</code>で絞り込むとpluginが見つかるので、ダブルクリックしてインストールしてください。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-08-android-selector-chapek/02.png" alt="02" /></p>
+
+<h2>画像リソースを用意する</h2>
+
+<p>SelectorChapek for Androidは命名規則に従った画像リソースを用意する事で、selectorの自動生成を実現します。それぞれの画像リソースのファイル名に、以下の様な状態に対応したサフィックスを付加します。</p>
+
+<table>
+<thead>
+<tr>
+<th>サフィックス</th>
+<th>Drawable state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_normal</td>
+<td>(default state)</td>
+</tr>
+<tr>
+<td>_pressed</td>
+<td>state_pressed</td>
+</tr>
+<tr>
+<td>_focused</td>
+<td>state_focused</td>
+</tr>
+<tr>
+<td>_disabled</td>
+<td>state_enabled (false)</td>
+</tr>
+<tr>
+<td>_checked</td>
+<td>state_checked</td>
+</tr>
+<tr>
+<td>_selected</td>
+<td>state_selected</td>
+</tr>
+<tr>
+<td>_hovered</td>
+<td>state_hovered</td>
+</tr>
+<tr>
+<td>_checkable</td>
+<td>state_checkable</td>
+</tr>
+<tr>
+<td>_activated</td>
+<td>state_activated</td>
+</tr>
+<tr>
+<td>_windowfocused</td>
+<td>state_window_focused</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>シンプルなカスタムボタンであれば以下の様に２つの画像を用意すれば十分でしょう。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>button_normal.png
+</span><span class='line'>button_pressed.png</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>selectorを生成する</h2>
+
+<p>作成した画像をdrawable-xhdpiなどに置き、</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-08-android-selector-chapek/03.png" alt="03" /></p>
+
+<p>ディレクトリを右クリックすると<code>Generate Android Selectors</code>という項目が表示されるので選択します。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-08-android-selector-chapek/04.png" alt="04" /></p>
+
+<p>すると、<code>drawable/button.xml</code>が生成されます。楽ちん。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class='line'>&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+</span><span class='line'>    &lt;item android:drawable="@drawable/button_normal" android:state_pressed="false"/&gt;
+</span><span class='line'>    &lt;item android:drawable="@drawable/button_pressed" android:state_pressed="true"/&gt;
+</span><span class='line'>&lt;/selector&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>条件を複数つける</h2>
+
+<p>例えば、disableかつ、pressedとかいった複数の状態を表す場合はサフィックスを連結すれば行えます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>button_disabled_pressed</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octo	pressに移行してみる]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/07/first-post/"/>
+    <updated>2014-01-07T23:06:12+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/07/first-post</id>
+    <content type="html"><![CDATA[<p>ブログをGithub Pagesに移行しつつ、<a href="http://octopress.org/">Octopress</a>を導入しました。
+OctopressはMarkdownで書くので捗るわー。テーマは<a href="https://github.com/coogie/oscailte">oscailte</a>を使ってます。</p>
+
+<!-- more -->
+
+
+<h2>Github Pagesのリポジトリを作る</h2>
+
+<p><a href="http://pages.github.com/">GitHub Pages</a>を参照してリポジトリ作って下さい。</p>
+
+<h2>Octopressの環境構築</h2>
+
+<p>rmvかrbenvを入れて、ruby1.9.3を入れておく。</p>
+
+<p>まずはOctopressの本体をcloneする。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Octopressのディレクトリに移動し、bundlerをインストールする。その後<code>bundle install</code>で依存するモジュールをインストールする。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd octopress
+</span><span class='line'>gem install bundler
+</span><span class='line'>rbenv rehash    # rbenvを使っている場合
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下のコマンドでデフォルトテーマがインストールされる。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ブログ本体を生成し、デプロイする</h2>
+
+<p>以下のコマンドでGithub Pagesの設定を行います。リポジトリのURLとかを聞かれます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p>その後以下のコマンドでブログ本体を生成します。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>すると<code>_deploy</code>ディレクトリが生成されます。ここにGithub Pagesの.gitが作られます。Github Pagesのリポジトリが空なら以下のコマンドでデプロイできるはずです。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>もし、リポジトリ内になにかファイルがある場合は、<code>git pull</code>して不要なファイルを削除して下さい。</p>
+
+<h2>新しいエントリを作成する</h2>
+
+<p>新しいエントリを作成するには以下のコマンドを使います。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["エントリ名"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以下のパスに新しいMarkdownファイルが生成されます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>source/_posts/yyyy-mm-dd-エントリ名.markdown </span></code></pre></td></tr></table></div></figure>
+
+
+<p>このファイルを編集して、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で新しいエントリをデプロイできます。</p>
+
+<h2>ブログをプレビューする</h2>
+
+<p>書きかけのエントリなどを確認するには以下のコマンドを使います。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4000番でWEBrickが動くので、</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+<p>でプレビューを見れます。</p>
+]]></content>
+  </entry>
+  
+</feed>
