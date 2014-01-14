@@ -199,10 +199,18 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 </span><span class='line'>&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
-</span><span class='line'>    &lt;item android:drawable="@drawable/button_normal" android:state_pressed="false"/&gt;
-</span><span class='line'>    &lt;item android:drawable="@drawable/button_pressed" android:state_pressed="true"/&gt;
+</span><span class='line'>    &lt;item 
+</span><span class='line'>      android:drawable="@drawable/button_normal"
+</span><span class='line'>      android:state_pressed="false"/&gt;
+</span><span class='line'>    &lt;item 
+</span><span class='line'>      android:drawable="@drawable/button_pressed" 
+</span><span class='line'>      android:state_pressed="true"/&gt;
 </span><span class='line'>&lt;/selector&gt;</span></code></pre></td></tr></table></div></figure>
 
 
@@ -211,7 +219,7 @@
 <p>例えば、disableかつ、pressedとかいった複数の状態を表す場合はサフィックスを連結すれば行えます。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>button_disabled_pressed</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>button_disabled_pressed.png</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -253,11 +261,15 @@
   <ul class="divided">
     
       <li class="post">
+        <a href="/blog/2014/01/13/parcel-generator/">Parcelableを自動生成する</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/08/android-selector-chapek/">SelectorChapek for Androidでselectorを自動生成する</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/01/07/first-post/">Octo	pressに移行してみる</a>
+        <a href="/blog/2014/01/07/first-post/">Octopressに移行してみる</a>
       </li>
     
   </ul>

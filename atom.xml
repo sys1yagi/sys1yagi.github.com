@@ -4,7 +4,7 @@
   <title><![CDATA[visible true]]></title>
   <link href="http://sys1yagi.github.io/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-01-09T13:58:01+09:00</updated>
+  <updated>2014-01-14T23:12:36+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -12,6 +12,172 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Parcelableを自動生成する]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/13/parcel-generator/"/>
+    <updated>2014-01-13T12:28:21+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/13/parcel-generator</id>
+    <content type="html"><![CDATA[<p>ParcelableはSerializableより制約が少なくていいんですが自分で直列化処理を書かないといけないのでだるいです。</p>
+
+<p>Android Studioで利用できるプラグイン「<a href="https://github.com/mcharmas/android-parcelable-intellij-plugin">Android Parcelable code generator</a>」を使えば簡単にParcelableを自動生成できます。</p>
+
+<!-- more -->
+
+
+<h2>インストール</h2>
+
+<p>Android Studioを起動して、[Preference]&ndash;[Plugins]を開き、<code>Browse repositories…</code>を押下してください。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-08-android-selector-chapek/01.png" alt="01" /></p>
+
+<p>Browse Repositoriesで<code>parcelable code gen</code>で絞り込むとpluginが見つかるので、ダブルクリックしてインストールしてください。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/01.png" alt="02" /></p>
+
+<h2>対象クラスを作る</h2>
+
+<p>Parcelableにしたいクラスを作っていきます。よくあるUserクラスとかにしておきます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">app</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="kt">int</span> <span class="n">mId</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">mName</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">){</span>
+</span><span class='line'>    <span class="n">mId</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+</span><span class='line'>    <span class="n">mName</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Parcelableを生成する</h2>
+
+<p>エディタの中で右クリックするとコンテキストメニューに「Generate&hellip;」があるので選択します。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/02.png" alt="03" /></p>
+
+<p>Generateの項目のうち「Generate Parcelable」を選択します。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/03.png" alt="04" /></p>
+
+<p>Parcelableで保存する対象となるフィールドを選択します。基本的に全部選択しておけばよいでしょう。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/04.png" alt="05" /></p>
+
+<p>するとParcelableの実装が生成されます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">app</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.os.Parcel</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.os.Parcelable</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">implements</span> <span class="n">Parcelable</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">mId</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="n">String</span> <span class="n">mName</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">){</span>
+</span><span class='line'>        <span class="n">mId</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+</span><span class='line'>        <span class="n">mName</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">describeContents</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">writeToParcel</span><span class="o">(</span><span class="n">Parcel</span> <span class="n">dest</span><span class="o">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">dest</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">mId</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">dest</span><span class="o">.</span><span class="na">writeString</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">mName</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="nf">User</span><span class="o">(</span><span class="n">Parcel</span> <span class="n">in</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">mId</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">mName</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Parcelable</span><span class="o">.</span><span class="na">Creator</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">CREATOR</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parcelable</span><span class="o">.</span><span class="na">Creator</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kd">public</span> <span class="n">User</span> <span class="nf">createFromParcel</span><span class="o">(</span><span class="n">Parcel</span> <span class="n">source</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">new</span> <span class="nf">User</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kd">public</span> <span class="n">User</span><span class="o">[]</span> <span class="nf">newArray</span><span class="o">(</span><span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">new</span> <span class="n">User</span><span class="o">[</span><span class="n">size</span><span class="o">];</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">};</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>おわりに</h2>
+
+<p>楽ちん！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SelectorChapek for Androidでselectorを自動生成する]]></title>
@@ -118,10 +284,18 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 </span><span class='line'>&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
-</span><span class='line'>    &lt;item android:drawable="@drawable/button_normal" android:state_pressed="false"/&gt;
-</span><span class='line'>    &lt;item android:drawable="@drawable/button_pressed" android:state_pressed="true"/&gt;
+</span><span class='line'>    &lt;item 
+</span><span class='line'>      android:drawable="@drawable/button_normal"
+</span><span class='line'>      android:state_pressed="false"/&gt;
+</span><span class='line'>    &lt;item 
+</span><span class='line'>      android:drawable="@drawable/button_pressed" 
+</span><span class='line'>      android:state_pressed="true"/&gt;
 </span><span class='line'>&lt;/selector&gt;</span></code></pre></td></tr></table></div></figure>
 
 
@@ -130,7 +304,7 @@
 <p>例えば、disableかつ、pressedとかいった複数の状態を表す場合はサフィックスを連結すれば行えます。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>button_disabled_pressed</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>button_disabled_pressed.png</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -138,7 +312,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Octo	pressに移行してみる]]></title>
+    <title type="html"><![CDATA[Octopressに移行してみる]]></title>
     <link href="http://sys1yagi.github.io/blog/2014/01/07/first-post/"/>
     <updated>2014-01-07T23:06:12+09:00</updated>
     <id>http://sys1yagi.github.io/blog/2014/01/07/first-post</id>

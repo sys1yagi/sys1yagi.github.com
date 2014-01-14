@@ -4,7 +4,7 @@
   <title><![CDATA[Category: plugin | visible true]]></title>
   <link href="http://sys1yagi.github.io/blog/categories/plugin/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-01-09T13:58:01+09:00</updated>
+  <updated>2014-01-14T23:12:36+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -116,8 +116,12 @@ button_pressed.png
 &lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android"></p>
 
-<pre><code>&lt;item android:drawable="@drawable/button_normal" android:state_pressed="false"/&gt;
-&lt;item android:drawable="@drawable/button_pressed" android:state_pressed="true"/&gt;
+<pre><code>&lt;item 
+  android:drawable="@drawable/button_normal"
+  android:state_pressed="false"/&gt;
+&lt;item 
+  android:drawable="@drawable/button_pressed" 
+  android:state_pressed="true"/&gt;
 </code></pre>
 
 <p></selector>
@@ -128,7 +132,7 @@ button_pressed.png
 <p>例えば、disableかつ、pressedとかいった複数の状態を表す場合はサフィックスを連結すれば行えます。</p>
 
 <p><code>
-button_disabled_pressed
+button_disabled_pressed.png
 </code></p>
 ]]></content>
   </entry>
