@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Octo	pressに移行してみる"
+title: "Octopressに移行してみる"
 date: 2014-01-07 23:06:12 +0900
 comments: true
 categories: octopress
