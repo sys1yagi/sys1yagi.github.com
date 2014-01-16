@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Android | visible true]]></title>
-  <link href="http://sys1yagi.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <title><![CDATA[Category: potatotips | visible true]]></title>
+  <link href="http://sys1yagi.github.io/blog/categories/potatotips/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
   <updated>2014-01-16T10:10:34+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
@@ -164,130 +164,6 @@ rootの件は、たとえばDNS設定は2.xではふつーに書き換えられ�
 <p>とかがよさ気なのかなという話。</p>
 
 <p><a href="http://square.github.io/retrofit/">Retrofit</a>知らなかったSquareまじｶｯｹｰ。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SelectorChapek for Androidでselectorを自動生成する]]></title>
-    <link href="http://sys1yagi.github.io/blog/2014/01/08/android-selector-chapek/"/>
-    <updated>2014-01-08T23:36:30+09:00</updated>
-    <id>http://sys1yagi.github.io/blog/2014/01/08/android-selector-chapek</id>
-    <content type="html"><![CDATA[<p>カスタムなデザインのボタンを作ろうと思ったら、通常の状態の画像とボタン押下時の画像を用意して、drawableにselectorを定義したxmlを配置して使う事になります。画像の用意はともかく、このselectorのxmlファイルというのがいつもめんどくさいです。大体ググって毎回書き方を調べたりします。</p>
-
-<p>このかったるい作業を簡単にしてくれるのがSelectorChapek for Androidです。</p>
-
-<!-- more -->
-
-
-<h2>SelectorChapek for Androidをインストールする</h2>
-
-<p>SelectorChapek for AndroidはAndroid Studioのpluginです。Github(<a href="https://github.com/inmite/android-selector-chapek">SelectorChapek for Android</a>)を見ればもうそのまんま使い方を書いてありますが解説します。</p>
-
-<p>Android Studioを起動して、[Preference]&ndash;[Plugins]を開き、<code>Browse repositories…</code>を押下してください。</p>
-
-<p><img src="/images/2014-01-08-android-selector-chapek/01.png" alt="01" /></p>
-
-<p>Browse Repositoriesで<code>SelectorChapek</code>で絞り込むとpluginが見つかるので、ダブルクリックしてインストールしてください。</p>
-
-<p><img src="/images/2014-01-08-android-selector-chapek/02.png" alt="02" /></p>
-
-<h2>画像リソースを用意する</h2>
-
-<p>SelectorChapek for Androidは命名規則に従った画像リソースを用意する事で、selectorの自動生成を実現します。それぞれの画像リソースのファイル名に、以下の様な状態に対応したサフィックスを付加します。</p>
-
-<table>
-<thead>
-<tr>
-<th>サフィックス</th>
-<th>Drawable state</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>_normal</td>
-<td>(default state)</td>
-</tr>
-<tr>
-<td>_pressed</td>
-<td>state_pressed</td>
-</tr>
-<tr>
-<td>_focused</td>
-<td>state_focused</td>
-</tr>
-<tr>
-<td>_disabled</td>
-<td>state_enabled (false)</td>
-</tr>
-<tr>
-<td>_checked</td>
-<td>state_checked</td>
-</tr>
-<tr>
-<td>_selected</td>
-<td>state_selected</td>
-</tr>
-<tr>
-<td>_hovered</td>
-<td>state_hovered</td>
-</tr>
-<tr>
-<td>_checkable</td>
-<td>state_checkable</td>
-</tr>
-<tr>
-<td>_activated</td>
-<td>state_activated</td>
-</tr>
-<tr>
-<td>_windowfocused</td>
-<td>state_window_focused</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>シンプルなカスタムボタンであれば以下の様に２つの画像を用意すれば十分でしょう。</p>
-
-<p><code>
-button_normal.png
-button_pressed.png
-</code></p>
-
-<h2>selectorを生成する</h2>
-
-<p>作成した画像をdrawable-xhdpiなどに置き、</p>
-
-<p><img src="/images/2014-01-08-android-selector-chapek/03.png" alt="03" /></p>
-
-<p>ディレクトリを右クリックすると<code>Generate Android Selectors</code>という項目が表示されるので選択します。</p>
-
-<p><img src="/images/2014-01-08-android-selector-chapek/04.png" alt="04" /></p>
-
-<p>すると、<code>drawable/button.xml</code>が生成されます。楽ちん。</p>
-
-<p>```
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;UTF-8&rdquo;?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android"></p>
-
-<pre><code>&lt;item 
-  android:drawable="@drawable/button_normal"
-  android:state_pressed="false"/&gt;
-&lt;item 
-  android:drawable="@drawable/button_pressed" 
-  android:state_pressed="true"/&gt;
-</code></pre>
-
-<p></selector>
-```</p>
-
-<h2>条件を複数つける</h2>
-
-<p>例えば、disableかつ、pressedとかいった複数の状態を表す場合はサフィックスを連結すれば行えます。</p>
-
-<p><code>
-button_disabled_pressed.png
-</code></p>
 ]]></content>
   </entry>
   
