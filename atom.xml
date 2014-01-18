@@ -4,7 +4,7 @@
   <title><![CDATA[visible true]]></title>
   <link href="http://sys1yagi.github.io/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-01-09T13:58:01+09:00</updated>
+  <updated>2014-01-16T10:12:01+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -12,6 +12,326 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[第3回はヤフー開催！ #potatotips で発表されたAndroidのtipsまとめ]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/15/potatotips-3/"/>
+    <updated>2014-01-15T19:11:45+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/15/potatotips-3</id>
+    <content type="html"><![CDATA[<p>iOSまとめはコチラ→<a href="http://himaratsu.hatenablog.com/entry/potatotips3">第3回はヤフー開催！ #potatotips で発表されたiOSのtipsまとめ</a></p>
+
+<p>potatotips 第3回に参加してきました。今回はヤフーオフィスでの開催！
+<a href="https://github.com/potatotips/potatotips/wiki/Potatotips-3">https://github.com/potatotips/potatotips/wiki/Potatotips-3</a></p>
+
+<blockquote class="twitter-tweet" lang="ja"><p>potatotips#3 in ヤフーさんに参加中！ <a href="https://twitter.com/search?q=%23potatotips&amp;src=hash">#potatotips</a> <a href="http://t.co/sDo41dfCg4">pic.twitter.com/sDo41dfCg4</a></p>&mdash; 所 友太 (@tokorom) <a href="https://twitter.com/tokorom/statuses/423396114457317377">2014, 1月 15</a></blockquote>
+
+
+<script async src="http://sys1yagi.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+
+<!-- more -->
+
+
+<p>potatotipsは発表者だけが参加できる、持ち時間1人5分のtips共有会です。
+いつもはクックパッド開催していましたが、今回はヤフーさんと合同開催する運びとなりました。三回に一回はクックパッド外での開催にしたいと思っているので「やろうず(^q^)」という方は是非所さんなどに声掛けください。</p>
+
+<p>そんな第3回で発表された9つのAndroidのtipsをまとめます！</p>
+
+<h2>レビューを良くするには</h2>
+
+<p><a href="https://twitter.com/rejasupotaro">@rejasupotaro</a>さん。</p>
+
+<p>発表はGistで行っていたので、スライドはなし。まとめがブログに→
+<a href="http://rejasupotaro.github.io/blog/2014/01/16/29/">アプリの評価を良くするということについて考える</a></p>
+
+<p>個人的に気になったのは、レビューダイアログを出すライブラリの存在。こんなんあったんだなー。ほげー。</p>
+
+<ul>
+<li>iOS: <a href="https://github.com/nicklockwood/iRate">iRate</a></li>
+<li>Android: <a href="https://github.com/kskkbys/Android-RateThisApp">Android-RateThisApp</a></li>
+</ul>
+
+
+<p>評価周りはなかなか難しい。個人的にはGoogle Playによく顔を出し、評価コメントにレスしたり、アプリ説明の所で現在やってる事とか注意とかを更新し続けるというのが地道かつ有効な方法かなーと感じているものの、「もっといい方法あるんじゃないか」という気もしている。</p>
+
+<p>あとACRAいいよACRA。</p>
+
+<h2>アプリでもオブジェクト思考エクササイズ</h2>
+
+<p><a href="https://twitter.com/shoma2da">@shoma2da</a>さん。</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/30032646" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/shoma2da/potatotips3-shoma2da" title="アプリでもオブジェクト指向エクササイズ（Potatotips#3）" target="_blank">アプリでもオブジェクト指向エクササイズ（Potatotips#3）</a> </strong> from <strong><a href="http://www.slideshare.net/shoma2da" target="_blank">Shoichi Matsuda</a></strong> </div></p>
+
+<p>ThoughtWorksアンソロジーに書かれているエクササイズらしい。気になる。制約が多い。</p>
+
+<p><a href="http://www.amazon.co.jp/dp/487311389X"><img src="http://ecx.images-amazon.com/images/I/51FOBZPjz-L._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg" alt="01" /><br/>ThoughtWorksアンソロジー ―アジャイルとオブジェクト指向によるソフトウェアイノベーション</a></p>
+
+<p>実戦にいきなり持ち込むのは危険な香りがするものの、あるテーマをこの制約で実装する「エクササイズマラソン」とかやると面白いかもしれないなと思う。「ひとつのクラスにフィールド2個まで」ってのは脳みそ痺れる。あとAmazonでは値段高騰しててつらぽ。</p>
+
+<h2>Fitting解像度対応β</h2>
+
+<p><a href="https://twitter.com/tq_ne_jp">@taqoo_negishi</a>さん。</p>
+
+<p>なんと発表はイラレ。レイヤーを切り替えてページ遷移。そっちに気を取られてしまった！
+SurfaceViewを使ったゲームアプリを作っていて、画面幅等で倍率を動的に求め、その値を使って画像サイズやタッチ位置を補正する感じにしている。という発表。
+UI設計としては正方形に納める事を意識していて、変なサイズの画面が来ても大丈夫にしている。</p>
+
+<p><a href="https://twitter.com/tq_ne_jp">@taqoo_negishi</a>さんのアプリはコチラ→<a href="https://play.google.com/store/apps/developer?id=TaQoo">https://play.google.com/store/apps/developer?id=TaQoo</a>
+Cocos2dやUnity等は使わずSurfaceViewでフルスクラッチだそう。イラレで発表していたのでリソース類も自分で作っているのではないかと思う。すげー。</p>
+
+<p>あとイラレすごい。</p>
+
+<h2>ちょっと優しい入力項目</h2>
+
+<p><a href="https://twitter.com/sakebook">@sakebook</a>さん。</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/30043058" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/sakebook/ss-30043058" title="ちょっと優しい入力項目" target="_blank">ちょっと優しい入力項目</a> </strong> from <strong><a href="http://www.slideshare.net/sakebook" target="_blank">Shinya Sakemoto</a></strong> </div></p>
+
+<p>EditTextのフォーカス移動の話。この辺意外と理解が曖昧だったりするのでこういった資料があると非常に捗る。フォーカスまじ大変。バージョンで挙動違うからなーつらい。</p>
+
+<h2>Reflectionを使おう、というお話</h2>
+
+<p><a href="https://twitter.com/kobito_kaba">@kobito_kaba</a>さん。</p>
+
+<p>AndroidのバージョンチェックしてAPI Levelが足りない場合呼び分けるという処理を書いた時、
+Android1.6だとクラスロード時点で存在しないメソッドがあると死ぬ問題があって、このためリフレクションを使って回避できるよねという話。でも今や1.6対応って意味ない。ではどういう時に使うか。</p>
+
+<ul>
+<li>root取らないといけない時とか</li>
+</ul>
+
+
+<p>もう一個あったと思いますが忘れてしまいました・・・。
+rootの件は、たとえばDNS設定は2.xではふつーに書き換えられたけど、3.x以降では塞がれた、しかしリフレクションによって書き換えが可能に！という話。これでテストも捗る。という。</p>
+
+<p>しかし聞いていると、なんかこう、セキュリティ・ホールでは・・・？という気がしてきた。ちょっと調べてみよう。
+リフレクションは便利だけどこわいなーやっぱり。</p>
+
+<h2>TDDでアプリ開発。カバレッジ8%を目指せ（消費税連携！？）</h2>
+
+<p><a href="https://twitter.com/tarotaro4">@tarotaro4</a></p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/30039278" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/tkawashita/20140115-potato-tips-no3-android-app-test-development-driven-and" title="20140115 potato tips No.3 Android App Test Development Driven and Jenkins CI Start" target="_blank">20140115 potato tips No.3 Android App Test Development Driven and Jenkins CI Start</a> </strong> from <strong><a href="http://www.slideshare.net/tkawashita" target="_blank">tkawashita </a></strong> </div></p>
+
+<p>CloudBeesでCIする感じ。CloudBees知らなかったので是非使いたい。emmaは次期Gradle pluginでサポートされるようなので期待。全バリエーションは１回のビルド&amp;テストで6時間かかるらしいのでやはりCIの道は険しい。「ローカルテストは小学生まで」は心に刻んでおきたい。</p>
+
+<h2>KotlinでAndroidアプリ開発！(後編)</h2>
+
+<p><a href="https://twitter.com/sys1yagi">私</a>です。</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/30039475" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/bs_yagi/potato03" title="Potato03 KotlinでAndroidアプリ開発(後編)" target="_blank">Potato03 KotlinでAndroidアプリ開発(後編)</a> </strong> from <strong><a href="http://www.slideshare.net/bs_yagi" target="_blank">Toshihiro Yagi</a></strong> </div></p>
+
+<p>Kotlinｻｲｺｰ！</p>
+
+<h2>Gradleの共通ルーチンをテストする（後編）</h2>
+
+<p><a href="https://twitter.com/__gfx__">@<strong>gfx</strong></a>さん。</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/30039867" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/gorof/potatotips3" title="Gradleだってテストしたい #potatotips" target="_blank">Gradleだってテストしたい #potatotips</a> </strong> from <strong><a href="http://www.slideshare.net/gorof" target="_blank">Goro Fuji</a></strong> </div></p>
+
+<p>Gradle周りはガッツリ触ってないのでこういう感じで色々やってみるのはよさそーだなーとｵﾓﾀ。ﾏｸﾛとか書けるんじゃない感ある。もはやGroovyっていうより、Gradleな世界観があって理解が大変だったりする。しかもGradle周りのソースには.javaが混在してて魔界感がある。Power Assertはいいなー。</p>
+
+<h2>AndroidのHTTPライブラリってどれがいいんでしょうか</h2>
+
+<p>飛び入り参加の<a href="https://twitter.com/ninjinkun">@ninjinkun</a>さん。</p>
+
+<p>最近Android界隈に迷い込んだのだとか。よいHTTPライブラリを探していて、</p>
+
+<ul>
+<li><a href="http://square.github.io/retrofit/">Retrofit</a></li>
+<li><a href="https://android.googlesource.com/platform/frameworks/volley">Volley</a></li>
+<li><a href="https://github.com/loopj/android-async-http">android-async-http</a></li>
+</ul>
+
+
+<p>とかがよさ気なのかなという話。</p>
+
+<p><a href="http://square.github.io/retrofit/">Retrofit</a>知らなかったSquareまじｶｯｹｰ。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Parcelableを自動生成する]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/13/parcel-generator/"/>
+    <updated>2014-01-13T12:28:21+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/13/parcel-generator</id>
+    <content type="html"><![CDATA[<p>ParcelableはSerializableより制約が少なくていいんですが自分で直列化処理を書かないといけないのでだるいです。</p>
+
+<p>Android Studioで利用できるプラグイン「<a href="https://github.com/mcharmas/android-parcelable-intellij-plugin">Android Parcelable code generator</a>」を使えば簡単にParcelableを自動生成できます。</p>
+
+<!-- more -->
+
+
+<h2>インストール</h2>
+
+<p>Android Studioを起動して、[Preference]&ndash;[Plugins]を開き、<code>Browse repositories…</code>を押下してください。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-08-android-selector-chapek/01.png" alt="01" /></p>
+
+<p>Browse Repositoriesで<code>parcelable code gen</code>で絞り込むとpluginが見つかるので、ダブルクリックしてインストールしてください。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/01.png" alt="02" /></p>
+
+<h2>対象クラスを作る</h2>
+
+<p>Parcelableにしたいクラスを作っていきます。よくあるUserクラスとかにしておきます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">app</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="kt">int</span> <span class="n">mId</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">private</span> <span class="n">String</span> <span class="n">mName</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">){</span>
+</span><span class='line'>    <span class="n">mId</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+</span><span class='line'>    <span class="n">mName</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Parcelableを生成する</h2>
+
+<p>エディタの中で右クリックするとコンテキストメニューに「Generate&hellip;」があるので選択します。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/02.png" alt="03" /></p>
+
+<p>Generateの項目のうち「Generate Parcelable」を選択します。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/03.png" alt="04" /></p>
+
+<p>Parcelableで保存する対象となるフィールドを選択します。基本的に全部選択しておけばよいでしょう。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-01-13-parcel-generator/04.png" alt="05" /></p>
+
+<p>するとParcelableの実装が生成されます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">app</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.os.Parcel</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.os.Parcelable</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">implements</span> <span class="n">Parcelable</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">mId</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="n">String</span> <span class="n">mName</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">){</span>
+</span><span class='line'>        <span class="n">mId</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+</span><span class='line'>        <span class="n">mName</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">describeContents</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">writeToParcel</span><span class="o">(</span><span class="n">Parcel</span> <span class="n">dest</span><span class="o">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">dest</span><span class="o">.</span><span class="na">writeInt</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">mId</span><span class="o">);</span>
+</span><span class='line'>        <span class="n">dest</span><span class="o">.</span><span class="na">writeString</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">mName</span><span class="o">);</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="nf">User</span><span class="o">(</span><span class="n">Parcel</span> <span class="n">in</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">mId</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readInt</span><span class="o">();</span>
+</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">mName</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Parcelable</span><span class="o">.</span><span class="na">Creator</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">CREATOR</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parcelable</span><span class="o">.</span><span class="na">Creator</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kd">public</span> <span class="n">User</span> <span class="nf">createFromParcel</span><span class="o">(</span><span class="n">Parcel</span> <span class="n">source</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">new</span> <span class="nf">User</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kd">public</span> <span class="n">User</span><span class="o">[]</span> <span class="nf">newArray</span><span class="o">(</span><span class="kt">int</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">new</span> <span class="n">User</span><span class="o">[</span><span class="n">size</span><span class="o">];</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">};</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>おわりに</h2>
+
+<p>楽ちん！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SelectorChapek for Androidでselectorを自動生成する]]></title>
@@ -118,10 +438,18 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 </span><span class='line'>&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
-</span><span class='line'>    &lt;item android:drawable="@drawable/button_normal" android:state_pressed="false"/&gt;
-</span><span class='line'>    &lt;item android:drawable="@drawable/button_pressed" android:state_pressed="true"/&gt;
+</span><span class='line'>    &lt;item 
+</span><span class='line'>      android:drawable="@drawable/button_normal"
+</span><span class='line'>      android:state_pressed="false"/&gt;
+</span><span class='line'>    &lt;item 
+</span><span class='line'>      android:drawable="@drawable/button_pressed" 
+</span><span class='line'>      android:state_pressed="true"/&gt;
 </span><span class='line'>&lt;/selector&gt;</span></code></pre></td></tr></table></div></figure>
 
 
@@ -130,7 +458,7 @@
 <p>例えば、disableかつ、pressedとかいった複数の状態を表す場合はサフィックスを連結すれば行えます。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>button_disabled_pressed</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>button_disabled_pressed.png</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -138,7 +466,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Octo	pressに移行してみる]]></title>
+    <title type="html"><![CDATA[Octopressに移行してみる]]></title>
     <link href="http://sys1yagi.github.io/blog/2014/01/07/first-post/"/>
     <updated>2014-01-07T23:06:12+09:00</updated>
     <id>http://sys1yagi.github.io/blog/2014/01/07/first-post</id>
