@@ -3,7 +3,7 @@ layout: post
 title: "Parcelableを自動生成する"
 date: 2014-01-13 12:28:21 +0900
 comments: true
-categories: 
+categories: android androidstudio
 ---
 
 ParcelableはSerializableより制約が少なくていいんですが自分で直列化処理を書かないといけないのでだるいです。

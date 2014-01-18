@@ -3,7 +3,7 @@ layout: post
 title: "SelectorChapek for Androidでselectorを自動生成する"
 date: 2014-01-08 23:36:30 +0900
 comments: true
-categories: Android AndroidStudio plugin
+categories: android androidstudio plugin
 ---
 
 カスタムなデザインのボタンを作ろうと思ったら、通常の状態の画像とボタン押下時の画像を用意して、drawableにselectorを定義したxmlを配置して使う事になります。画像の用意はともかく、このselectorのxmlファイルというのがいつもめんどくさいです。大体ググって毎回書き方を調べたりします。

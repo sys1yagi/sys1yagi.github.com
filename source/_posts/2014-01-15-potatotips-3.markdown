@@ -3,7 +3,7 @@ layout: post
 title: "第3回はヤフー開催！ #potatotips で発表されたAndroidのtipsまとめ"
 date: 2014-01-15 19:11:45 +0900
 comments: true
-categories: Android potatotips
+categories: android potatotips
 ---
 
 iOSまとめはコチラ→[第3回はヤフー開催！ #potatotips で発表されたiOSのtipsまとめ](http://himaratsu.hatenablog.com/entry/potatotips3)
