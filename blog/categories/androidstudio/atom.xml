@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: AndroidStudio | visible true]]></title>
+  <title><![CDATA[Category: androidstudio | visible true]]></title>
   <link href="http://sys1yagi.github.io/blog/categories/androidstudio/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-01-18T18:20:45+09:00</updated>
+  <updated>2014-01-18T18:36:57+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Parcelableを自動生成する]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/13/parcel-generator/"/>
+    <updated>2014-01-13T12:28:21+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/13/parcel-generator</id>
+    <content type="html"><![CDATA[<p>ParcelableはSerializableより制約が少なくていいんですが自分で直列化処理を書かないといけないのでだるいです。</p>
+
+<p>Android Studioで利用できるプラグイン「<a href="https://github.com/mcharmas/android-parcelable-intellij-plugin">Android Parcelable code generator</a>」を使えば簡単にParcelableを自動生成できます。</p>
+
+<!-- more -->
+
+
+<h2>インストール</h2>
+
+<p>Android Studioを起動して、[Preference]&ndash;[Plugins]を開き、<code>Browse repositories…</code>を押下してください。</p>
+
+<p><img src="/images/2014-01-08-android-selector-chapek/01.png" alt="01" /></p>
+
+<p>Browse Repositoriesで<code>parcelable code gen</code>で絞り込むとpluginが見つかるので、ダブルクリックしてインストールしてください。</p>
+
+<p><img src="/images/2014-01-13-parcel-generator/01.png" alt="02" /></p>
+
+<h2>対象クラスを作る</h2>
+
+<p>Parcelableにしたいクラスを作っていきます。よくあるUserクラスとかにしておきます。</p>
+
+<p>```java
+package com.example.app;</p>
+
+<p>public class User {</p>
+
+<p>  private int mId;</p>
+
+<p>  private String mName;</p>
+
+<p>  public User(int id, String name){</p>
+
+<pre><code>mId = id;
+mName = name;
+</code></pre>
+
+<p>  }</p>
+
+<p>}
+```</p>
+
+<h2>Parcelableを生成する</h2>
+
+<p>エディタの中で右クリックするとコンテキストメニューに「Generate&hellip;」があるので選択します。</p>
+
+<p><img src="/images/2014-01-13-parcel-generator/02.png" alt="03" /></p>
+
+<p>Generateの項目のうち「Generate Parcelable」を選択します。</p>
+
+<p><img src="/images/2014-01-13-parcel-generator/03.png" alt="04" /></p>
+
+<p>Parcelableで保存する対象となるフィールドを選択します。基本的に全部選択しておけばよいでしょう。</p>
+
+<p><img src="/images/2014-01-13-parcel-generator/04.png" alt="05" /></p>
+
+<p>するとParcelableの実装が生成されます。</p>
+
+<p>```java
+package com.example.app;</p>
+
+<p>import android.os.Parcel;
+import android.os.Parcelable;</p>
+
+<p>public class User implements Parcelable {</p>
+
+<pre><code>private int mId;
+
+private String mName;
+
+public User(int id, String name){
+    mId = id;
+    mName = name;
+}
+
+@Override
+public int describeContents() {
+    return 0;
+}
+
+@Override
+public void writeToParcel(Parcel dest, int flags) {
+    dest.writeInt(this.mId);
+    dest.writeString(this.mName);
+}
+
+private User(Parcel in) {
+    this.mId = in.readInt();
+    this.mName = in.readString();
+}
+
+public static Parcelable.Creator&lt;User&gt; CREATOR = new Parcelable.Creator&lt;User&gt;() {
+    public User createFromParcel(Parcel source) {
+        return new User(source);
+    }
+
+    public User[] newArray(int size) {
+        return new User[size];
+    }
+};
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>おわりに</h2>
+
+<p>楽ちん！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SelectorChapek for Androidでselectorを自動生成する]]></title>
