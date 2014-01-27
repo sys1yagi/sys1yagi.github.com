@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 見積もり | visible true]]></title>
+  <link href="http://sys1yagi.github.io/blog/categories/jian-ji-mori/atom.xml" rel="self"/>
+  <link href="http://sys1yagi.github.io/"/>
+  <updated>2014-01-27T16:40:35+09:00</updated>
+  <id>http://sys1yagi.github.io/</id>
+  <author>
+    <name><![CDATA[Toshihiro Yagi]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[スマホアプリを新規作成したらいくらかかる？ #モバイル見積もり 勉強会に行ってきました]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/01/26/estimate-mobile-app/"/>
+    <updated>2014-01-26T11:21:18+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/01/26/estimate-mobile-app</id>
+    <content type="html"><![CDATA[<p><img src="http://sys1yagi.github.io/images/2014-01-26-estimate-mobile-app/mobilequote.jpg"/></p>
+
+<p>1月某日に、<a href="http://wordbench.org/2014/01/14/wordbench-kobe/">WordPressサイトを構築するといくらかかる？ 見積り勉強会で価格を出してみた</a>をみて興味をもったモバイルアプリ開発者の集いが<a href="http://www.ni-ichicafe.com/">渋谷21cafeさん</a>で開催されました。</p>
+
+<p><a href="http://www.zusaar.com/event/3147004">スマホアプリを新規作成したらいくらかかる？モバイル見積もり勉強会 #モバイル見積</a></p>
+
+<p>そのまんま、WordPressサイトの見積もりのスマホアプリ版ですね。</p>
+
+<h2>開催の経緯</h2>
+
+<blockquote class="twitter-tweet" lang="ja"><p>WordPressサイトを構築するといくらかかる？ 見積り勉強会で価格を出してみた | WordBench <a href="http://t.co/WOd1So9SGF">http://t.co/WOd1So9SGF</a> これのアプリ版やりたいなぁ</p>&mdash; ようてん (@youten_redo) <a href="https://twitter.com/youten_redo/statuses/422999502090297345">2014, 1月 14</a></blockquote>
+
+
+<script async src="http://sys1yagi.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+
+<blockquote class="twitter-tweet" lang="ja"><p>やりたいって言っただけなのに俺が主催で開催される流れになってるこわい</p>&mdash; ようてん (@youten_redo) <a href="https://twitter.com/youten_redo/statuses/423003026920456192">2014, 1月 14</a></blockquote>
+
+
+<script async src="http://sys1yagi.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>言い出しっぺの法則という事で見事に<a href="https://twitter.com/youten_redo">@youten_redo</a>さんが爆撃され開催の運びに。
+詳細については<a href="http://greety.sakura.ne.jp/redo/2014/01/post-41.html">カレー屋チェーン店公式アプリの仮想案件をみんなで見積もってみた #モバイル見積</a>を参照してください。</p>
+
+<!-- more -->
+
+
+<h2>前提</h2>
+
+<p>先に意識しておいてほしいのは、今回の見積もり会は「時間制限あり」で「概算見積もり」で「それぞれのチームで解釈が異なった」という所が多分に価格に出ているという点です。</p>
+
+<p>あるチームは「エンジニアに実現可能性と工数を聞く」というレベル感で出していたり、あるチームは「リスク込み、交渉材料込みのフルに近い数字」で出してたり様々です。でも「時間制限あり」という事で当然ながら全体的に考慮漏れの方が多いです。</p>
+
+<p>特に「概算見積もり」という点は大きくて、全チームの数字のどれもが最終価格ではないと思ってください。最終的に大切な事は「顧客に価値を提供する事」と「利益を出す」事であり、それは実際に顧客とコミュニケーションしていく中で落としこんでいくものです。今回の数字はその辺に至る前のたたき台の更にその前みたいなものです。</p>
+
+<p>皆えいやっ、で出した調整前の生の数字だったりするので面白かったりもします。</p>
+
+<h2>チーム分け</h2>
+
+<p>会場には円形のテーブルがいくつかあって、最初に座った所がチームとなりました。見積もりというと割と各企業でセンシティブなものだったりする気がするので、参加者の誰がどこのチームに属したかは伏せておきます。</p>
+
+<h2>割りとガチな要件</h2>
+
+<p>見積もりに関する事前の情報はなしという事で皆現場で<a href="https://docs.google.com/a/cookpad.jp/file/d/0BybSp1RcLhkVczFkU1czd3g3Yms/edit">ガイダンス</a>や<a href="https://docs.google.com/a/cookpad.jp/file/d/0B3JEBJmnCulYcUVoOXA5ZUhjSUU/edit">公式アプリ開発方針書</a>の説明を聞きながら簡単に要求の把握を。</p>
+
+<p>ざっくり言うとカレー屋さんの公式アプリで、店舗でNFC、iBeaconでのチェックアウト&amp;クーポン発行ができて、GPSでの店舗検索や、メニューとか最新情報が見れるというもの。予算感はなし(無尽蔵と考えてよい)、期間は3ヶ月、単金は固定で80、戦略価格(過度な割引等)はなし、Q&amp;Aは主催の二人に都度確認するといった条件で見積もり、最終的に見積もり書テンプレートに工数、金額を書き発表するという流れ。</p>
+
+<p>発表内容は金額に加えて、「どういう作戦で見積もったか」「どういう点で苦労したか」「どういう点で盛り上がったか」「アピールポイント」を含める。</p>
+
+<p><a href="https://docs.google.com/a/cookpad.jp/spreadsheet/ccc?key=0AnJEBJmnCulYdHYxZFJFOUg5c2ppczlVbExFTHlvVUE&amp;usp=drive_web#gid=0">画面仕様書や要求仕様書</a>がある程度しっかりあって「ここまで予め情報が揃ってる案件ってほとんど見たことない！」というのが第一印象でしょうか。基本もっと夢いっぱいのパワポがあって、コチラで要求仕様おこしたりするよねー。概算の前にその段階でNFC, iBeaconは削るだろうな。</p>
+
+<h2>細かく検討すると時間が足りない</h2>
+
+<p>ざっくり見ると割りとありそうな感じの要求。見積もりの時間は19:10~20:30の約１時間半で、仕様理解や曖昧な点の確認、前提条件や制約事項等を詰めていくには厳しい感じ。なので各チームだいぶフォーカスがバラけた気がする。ので中盤、終盤からだいぶ皆テキトーになっていると思う。</p>
+
+<h2>Aチーム</h2>
+
+<p>僕はAチームでした。結果としては税込みで1400万くらい。今回は顧客の予算が無限という前提だったので、ある程度しっかりのせました。また端末調達等も含んでいるので厚めになっています。時間が足らなかったので見積書の方の記載はだいぶ適当に。</p>
+
+<p><a href="https://docs.google.com/a/cookpad.jp/spreadsheet/ccc?key=0AnJEBJmnCulYdDg4VEtydm9DNXltczg5dGVLc1lHLWc&amp;usp=drive_web#gid=3">お見積書 株式会社ペッパー警部　御中</a></p>
+
+<p><a href="https://docs.google.com/a/cookpad.jp/spreadsheet/ccc?key=0AnJEBJmnCulYdDg4VEtydm9DNXltczg5dGVLc1lHLWc&amp;usp=drive_web#gid=11">詳細な見積もり</a>の方に色々な内訳があります。時間の兼ね合いで全体的にすげー適当です。すっげー適当だからね！思いついた項目全部のせてざっくり数字入れただけなんで、そこから削りとかなんとかの調整はしてません。</p>
+
+<h3>見積もりにあたって考えた色々</h3>
+
+<p>まず顧客の属性を考えると、NFC, iBeaconに対する要求は思いつきである可能性が高いです。日経新聞とかITニュースとかで知ったよ、という所で実際に開発、導入するにあたって制約やコスト感やユーザビリティをそこまで検討はしていないと思われます。これは単純にリスクで、当然その辺りの対応は厚く見積もる事になります。</p>
+
+<p>NFC, iBeaconを店舗でのクーポン発行に使うという事なので、QRコードやGPSで代替できそうです。今回は見積もりにQRコード対応を入れています。NFC, iBeaconの実機手配や試験や開発周りの費用諸々を引くと大体1000を切る形に調整しています。最終で980くらいに調整できれば、というのが見積もり時の感覚でした。</p>
+
+<p>この辺は実際に概算を出しつつ、NFC, iBeaconに関するプライオリティを先方に確認しつつ検討していく事になります。まじでNFC, iBeaconをやりたいというのであれば、QRコードをメインにして、数店舗で先行実験をする形で別途検討すべきではとかいった提案をすると思います。いきなり100店舗はむりぽ。その辺りを詰めれば価格はもっと落ち着くはずです。また、先方のシステム部で別途NFC, iBeacon周りのすべてをやるのでアプリ側は仕様に沿ってロジック書くだけでいいんだ、という事ならもっと抑えられるでしょう。その辺は概算もって打ち合わせないとなんとも言えないです。</p>
+
+<p>他の部分についても同様にゆらぐ点がたくさんあります。その辺も概算だして詰める感じですね。</p>
+
+<p>主催のようてんさんの見積もり「<a href="http://greety.sakura.ne.jp/redo/2014/01/post-42.html">せっかくだから見積もってみた</a>」の価格を見てもやっぱりそのくらいだよなー感があります。ただ内訳はだいぶ違いますね。Androidテストがでかいのは要求機種数が多いためで、ここは打ち合わせの中で対象端末を大幅に絞って削られるでしょう。「要求機種数が多い」点は現場ではすくいきれなかったなー。皆テスト周りの見積もりは超ざっくりだったです。</p>
+
+<p>大事なことなので何回も書きますが、最終的に大切な事は「顧客に価値を提供する事」と「利益を出す」事であり、それは実際に顧客とコミュニケーションしていく中で落としこんでいくものです。一口に要求、見積もりといってもお互いの状態によって大きくゆらぎます。</p>
+
+<h2>他のチーム</h2>
+
+<p>170-600くらいまで。製造コストだよね、感が強かった。でも会社の規模感によってもその辺は変化するかもしれない。けど300台は無いかなー。600は色々調整後あるかもしれない。あと相手の予算感にも強い影響を受けるので一概にどーとかは言い切れない所もある。</p>
+
+<h2>おわりに</h2>
+
+<p>今回は短時間でざっくり見積もり、いわゆるライブ見積もりという事で、技法云々とか根拠云々とかはなかなか頭回らなかったなーと思います。その辺の技法に関する勉強色々したいなーとかも思ったり。</p>
+
+<p>最終的に大事な事は「顧客に価値を提供する事」と「利益を出す」事であり、それは実際に顧客とコミュニケーションしていく中で落としこんでいくものなので、今回の結果は飽くまで概算であり、そこから色々なプロセスを経て価格が決まって契約に至るという所はマジで意識して頂けると世界平和に一歩近づくのではないかと思います＼(^o^)／</p>
+]]></content>
+  </entry>
+  
+</feed>
