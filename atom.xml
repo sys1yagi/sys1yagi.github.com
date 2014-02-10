@@ -4,7 +4,7 @@
   <title><![CDATA[visible true]]></title>
   <link href="http://sys1yagi.github.io/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-02-01T10:56:08+09:00</updated>
+  <updated>2014-02-10T14:19:18+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -12,6 +12,446 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FadingActionBar -open source libraries #001-]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/02/05/fadingactionbar/"/>
+    <updated>2014-02-05T22:36:50+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/02/05/fadingactionbar</id>
+    <content type="html"><![CDATA[<p>　<a href="http://www.amazon.co.jp/gp/product/4798040029/">Androidオープンソースライブラリ徹底活用</a>の発売以降、続々と新しいライブラリが出てきて、本に載せられなかった分も含めて色々とキャッチアップしていきたいなーと思ったので本に近い形式でライブラリを取り上げていこうかなーと思います。本よりだいぶ砕けた文になると思いますがご了承ください。あと本ではEclipseベースで記述していましたが、ここではAndroid Studioベースで書きます。EclipseでAndroidアプリケーション開発が許されるのは小学生までだと思います。</p>
+
+<h1>FadingActionBar</h1>
+
+<p>ActionBarの領域をフェードできるライブラリ</p>
+
+<ul>
+<li>サポートバージョン: 2.2以上</li>
+<li>License: Apache 2.0</li>
+<li>タイプ: aar, ライブラリプロジェクト</li>
+<li><p>公式サイト:<a href="https://github.com/ManuelPeinado/FadingActionBar">https://github.com/ManuelPeinado/FadingActionBar</a></p></li>
+<li><p>サンプルコード:<a href="https://github.com/sys1yagi/FadingActionBarSample">https://github.com/sys1yagi/FadingActionBarSample</a></p></li>
+</ul>
+
+
+<h2>概要</h2>
+
+<p>　FadingActionBarはActionBar部分を画面のスクロールにしたがってフェードできるライブラリです。ActionBar部分までコンテンツをオーバーレイさせたい場合に利用できます。また、オーバーレイしたコンテンツ部分をパララックスにする事もできます。</p>
+
+<h3>動作イメージ</h3>
+
+<p>スクロールすると指定した色にActionBarがフェードします。ファーストビューでコンテンツを大きく見せられます。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/01.jpg" width="200px"/>
+<img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/02.jpg" width="200px"/>
+<img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/03.jpg" width="200px"/></p>
+
+<!-- more -->
+
+
+<h2>導入手順</h2>
+
+<p>　FadingActionBarはaar(Android archive)形式をサポートしており、build.gradleのdependenciesに定義するだけでライブラリを利用できます。以下の定義は通常のActionBarでFradingActionBarを利用する場合の設定です。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">dependencies</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">compile</span> <span class="s1">&#39;com.github.manuelpeinado.fadingactionbar:fadingactionbar:3.1.0&#39;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　FadingActionBarは通常のActionBarの他に、appcompat-v7のActionBarCompatやActionBarSherlockをサポートしています。ActionBarCompatを使う場合、ActionBarSherlockを使う場合の設定をそれぞれ以下に示します。</p>
+
+<h3>ActionBarCompat</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">dependencies</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">compile</span> <span class="s1">&#39;com.android.support:appcompat-v7:+&#39;</span>
+</span><span class='line'>  <span class="n">compile</span> <span class="s1">&#39;com.github.manuelpeinado.fadingactionbar:fadingactionbar-abc:3.1.0&#39;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ActionBarSherlock</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='groovy'><span class='line'><span class="n">dependencies</span> <span class="o">{</span>
+</span><span class='line'>  <span class="n">compile</span> <span class="s1">&#39;com.github.manuelpeinado.fadingactionbar:fadingactionbar-abs:3.1.0&#39;</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　Eclipseを使う場合は、FadingActionBarをcloneし、ライブラリプロジェクトとして参照してください。</p>
+
+<h2>FadingActionBarを使う</h2>
+
+<p>　FadingActionBarは以下の様な画面のスクロールが発生するレイアウトでの利用を想定しています。</p>
+
+<ul>
+<li>ScrollView</li>
+<li>WebView</li>
+<li>ListView</li>
+</ul>
+
+
+<p>　ここではActionBarCompatでScrollViewを使う例を解説します。</p>
+
+<h3>テーマの定義をする</h3>
+
+<p>　まず、FadingActionBarを利用するにあたって必要なテーマを定義します。通常ActionBarは不透明で、コンテンツ領域はActionBarの表示領域の下部から始まります。これらのスタイルを変更して、背景を透過し、コンテンツ領域にオーバーレイするActionBarにします。</p>
+
+<p>　以下の例では<code>AppTheme</code>という名前でActionBarの透過、オーバーレイの定義をしています。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;resources&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;style</span> <span class="na">name=</span><span class="s">&quot;Widget.ActionBar&quot;</span> <span class="na">parent=</span><span class="s">&quot;@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/style&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;style</span> <span class="na">name=</span><span class="s">&quot;Widget.ActionBar.Transparent&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;android:background&quot;</span><span class="nt">&gt;</span>@android:color/transparent<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;background&quot;</span><span class="nt">&gt;</span>@android:color/transparent<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/style&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;style</span> <span class="na">name=</span><span class="s">&quot;AppTheme&quot;</span> <span class="na">parent=</span><span class="s">&quot;Theme.AppCompat.Light.DarkActionBar&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;actionBarStyle&quot;</span><span class="nt">&gt;</span>@style/Widget.ActionBar.Transparent<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;windowActionBarOverlay&quot;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;item</span> <span class="na">name=</span><span class="s">&quot;android:windowContentOverlay&quot;</span><span class="nt">&gt;</span>@null<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/style&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/resources&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　<code>AppTheme</code>をAndroidManifest.xmlのapplication要素に設定します。application要素だとアプリケーション内の全てのActivityにテーマが適用されてしまうので、Activity毎に個別に適用したい場合はactivity要素に設定してください。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;application</span>
+</span><span class='line'>    <span class="na">android:icon=</span><span class="s">&quot;@drawable/ic_launcher&quot;</span>
+</span><span class='line'>    <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+</span><span class='line'>    <span class="na">android:theme=</span><span class="s">&quot;@style/AppTheme&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c">&lt;!-- 省略 --&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/application&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ヘッダのレイアウトを作成する</h3>
+
+<p>　FadingActionBarは、ActionBarにオーバーレイするヘッダ部分と、それ以外のコンテンツ部分を異なるレイアウトで管理します。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/04.jpg" width="400px"/></p>
+
+<p>　以下のXMLはヘッダに表示するレイアウトの例です。多くの場合大きなImageViewを利用する事になるでしょう。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;ImageView</span>
+</span><span class='line'>    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span class='line'>    <span class="na">android:src=</span><span class="s">&quot;@drawable/main_photo&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+</span><span class='line'>    <span class="na">android:scaleType=</span><span class="s">&quot;centerCrop&quot;</span>
+</span><span class='line'>    <span class="na">android:adjustViewBounds=</span><span class="s">&quot;true&quot;</span>
+</span><span class='line'>    <span class="nt">/&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>コンテンツのレイアウトを作成する</h3>
+
+<p>　次にコンテンツのレイアウトを定義します。ここで重要なのは、ヘッダ、コンテンツどちらのレイアウトにも<code>ScrollView</code>が登場していない点です。FadingActionBarが自動的に<code>ScrollView</code>でこれらのレイアウトをラップするので自分で定義する必要はありません。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;LinearLayout</span>
+</span><span class='line'>    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+</span><span class='line'>    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span>
+</span><span class='line'>    <span class="na">android:background=</span><span class="s">&quot;?android:attr/windowBackground&quot;</span>
+</span><span class='line'>    <span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;TextView</span>
+</span><span class='line'>      <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>      <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+</span><span class='line'>      <span class="na">android:background=</span><span class="s">&quot;@drawable/shape_header&quot;</span>
+</span><span class='line'>      <span class="na">android:padding=</span><span class="s">&quot;10dp&quot;</span>
+</span><span class='line'>      <span class="na">android:textStyle=</span><span class="s">&quot;bold&quot;</span>
+</span><span class='line'>      <span class="na">android:text=</span><span class="s">&quot;photo by&quot;</span>
+</span><span class='line'>      <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;TextView</span>
+</span><span class='line'>      <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>      <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+</span><span class='line'>      <span class="na">android:padding=</span><span class="s">&quot;10dp&quot;</span>
+</span><span class='line'>      <span class="na">android:text=</span><span class="s">&quot;http://www.flickr.com/photos/legin101/5480688759&quot;</span>
+</span><span class='line'>      <span class="nt">/&gt;</span>
+</span><span class='line'><span class="nt">&lt;/LinearLayout&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>FadingActionBarHelperでレイアウトを初期化する</h3>
+
+<p>　レイアウトの初期化はFadingActionBarHelperクラスを使って行います。FadingActionBarHelperクラスは環境によって異なるパッケージに定義されています。ActionBarCompatを利用する場合は<code>.extras.actionbarcompat</code>のFadingActionBarHelperクラスを利用する事になります。</p>
+
+<p>　以下の様にActivityのonCreateメソッドでFadingActionBarHelperクラスを作成し、メソッドチェーンで必要なパラメータをセットします。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">com.manuelpeinado.fadingactionbar.extras.actionbarcompat.FadingActionBarHelper</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//中略</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">ActionBarActivity</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">FadingActionBarHelper</span> <span class="n">helper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FadingActionBarHelper</span><span class="o">()</span>
+</span><span class='line'>      <span class="o">.</span><span class="na">actionBarBackground</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">holo_blue_light</span><span class="o">)</span>
+</span><span class='line'>      <span class="o">.</span><span class="na">headerLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">header_main</span><span class="o">)</span>
+</span><span class='line'>      <span class="o">.</span><span class="na">contentLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　上記コードで呼び出しているFadingActionBarHelperクラスのメソッドについて以下の表に示します。headerLayoutメソッド及び、contentLayoutメソッドは必ず呼び出してレイアウトの値を設定しなければなりません。</p>
+
+<table>
+<thead>
+<tr>
+<th>名前</th>
+<th>解説</th>
+<th>必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>actionBarBackground(int drawableResId)</td>
+<td>フェード後のActionBarの背景を設定できます</td>
+<td>×</td>
+</tr>
+<tr>
+<td>headerLayout(int layoutId)</td>
+<td>ActionBarにオーバーレイするレイアウトを設定できます</td>
+<td>○</td>
+</tr>
+<tr>
+<td>contentLayout(int layoutId)</td>
+<td>ヘッダレイアウトの下部に表示するコンテンツ領域のレイアウトを設定できます</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>　FadingActionBarHelperクラスの初期化が終わったら、initActionBarメソッドを呼び出してActionBarに設定を反映します。その後createViewメソッドを使って画面に表示するViewを作成します。createViewメソッドで取り出せるViewには設定したヘッダとコンテンツのレイアウトが含まれています。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>
+</span><span class='line'>    <span class="n">helper</span><span class="o">.</span><span class="na">initActionBar</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">setContentView</span><span class="o">(</span><span class="n">helper</span><span class="o">.</span><span class="na">createView</span><span class="o">(</span><span class="k">this</span><span class="o">));</span>
+</span><span class='line'>  <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　実際にcreateViewメソッドで取り出せるViewの<a href="http://visible-true.blogspot.jp/2012/02/view.html">Treeをダンプする</a>と以下の様な構造である事がわかります。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">com</span><span class="o">.</span><span class="na">manuelpeinado</span><span class="o">.</span><span class="na">fadingactionbar</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">RootLayout</span>
+</span><span class='line'> <span class="n">android</span><span class="o">.</span><span class="na">widget</span><span class="o">.</span><span class="na">FrameLayout</span>
+</span><span class='line'>  <span class="n">android</span><span class="o">.</span><span class="na">widget</span><span class="o">.</span><span class="na">ImageView</span>
+</span><span class='line'>  <span class="n">android</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">View</span>
+</span><span class='line'> <span class="n">com</span><span class="o">.</span><span class="na">manuelpeinado</span><span class="o">.</span><span class="na">fadingactionbar</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">ObservableScrollView</span>
+</span><span class='line'>  <span class="n">android</span><span class="o">.</span><span class="na">widget</span><span class="o">.</span><span class="na">LinearLayout</span>
+</span><span class='line'>   <span class="n">android</span><span class="o">.</span><span class="na">widget</span><span class="o">.</span><span class="na">FrameLayout</span>
+</span><span class='line'>   <span class="n">android</span><span class="o">.</span><span class="na">widget</span><span class="o">.</span><span class="na">LinearLayout</span>
+</span><span class='line'>    <span class="n">android</span><span class="o">.</span><span class="na">widget</span><span class="o">.</span><span class="na">TextView</span>
+</span><span class='line'>    <span class="n">android</span><span class="o">.</span><span class="na">widget</span><span class="o">.</span><span class="na">TextView</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　これでActionBarにコンテンツをオーバーレイし、ActionBarをスクロールに従ってフェードできる様になります。</p>
+
+<h2>Fragmentで使う</h2>
+
+<p>　FragmentでFadingActionBarを利用する場合は、FadingActionBarHelperクラスをonCreateViewメソッドのタイミングで初期化します。これだけでOKです。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ParallaxFragment</span> <span class="kd">extends</span> <span class="n">Fragment</span> <span class="o">{</span>
+</span><span class='line'>  <span class="c1">//中略  </span>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="n">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="n">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">container</span><span class="o">,</span>
+</span><span class='line'>      <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">FadingActionBarHelper</span> <span class="n">fadingActionBarHelper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FadingActionBarHelper</span><span class="o">()</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">actionBarBackground</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">holo_blue_light</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">headerLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">header_main</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">contentLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fadingActionBarHelper</span><span class="o">.</span><span class="na">initActionBar</span><span class="o">(</span><span class="n">getActivity</span><span class="o">());</span>
+</span><span class='line'>    <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">fadingActionBarHelper</span><span class="o">.</span><span class="na">createView</span><span class="o">(</span><span class="n">inflater</span><span class="o">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">view</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>パララックスの設定をする</h2>
+
+<p>　FadingActionBarはヘッダ部分をパララックスにできます。FadingActionBarHelperクラスのparallaxメソッドで設定できます。デフォルトではオンになっています。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">FadingActionBarHelper</span> <span class="n">helper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FadingActionBarHelper</span><span class="o">()</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">parallax</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">actionBarBackground</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">holo_blue_light</span><span class="o">)</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">headerLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">header_main</span><span class="o">)</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">contentLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　パララックス有りと無しでは、以下の様にスクロール時のヘッダの表示が変わります。パララックス有りだとスクロール量より遅めにヘッダ部分がスクロールします。</p>
+
+<table>
+<thead>
+<tr>
+<th>パララックス有り</th>
+<th>パララックス無し</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/05.jpg" width="250px"/></td>
+<td><img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/06.jpg" width="250px"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>HeaderOverlayを使う</h2>
+
+<p>　ヘッダにボタン等の操作用UIを配置したい場合、パララックスをオンにしているとスクロール時に表示がズレてしまうので管理が大変です。HeaderOverlayを使うと、ヘッダの前面にオーバーレイするViewを追加する事ができ、パララックスの影響を受けないレイアウトを作れます。</p>
+
+<p>　HeaderOverlayはFadingActionBarHelperクラスのheaderOverlayLayoutメソッドでセットできます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">FadingActionBarHelper</span> <span class="n">fadingActionBarHelper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FadingActionBarHelper</span><span class="o">()</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">actionBarBackground</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">holo_blue_light</span><span class="o">)</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">headerLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">header_main</span><span class="o">)</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">headerOverlayLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">header_overlay</span><span class="o">)</span>
+</span><span class='line'>  <span class="o">.</span><span class="na">contentLayout</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　以下の様にスクロールしてもパララックスの影響を受けないViewを追加できます。</p>
+
+<p><img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/07.jpg" width="250px"/>
+<img src="http://sys1yagi.github.io/images/2014-02-05-fadingactionbar/08.jpg" width="250px"/></p>
+
+<h2>おわりに</h2>
+
+<p>　軽めに書くつもりが結構なボリュームになってしまった・・・。FadingActionBarなかなかよさそうですね。ただ自前でテーマ定義する部分は少し面倒です。aar形式なのだし、ライブラリ側に含める事が出来るんじゃないかなぁ・・・と思いました。暇があれば検証&amp;pull reqしてみようかなと思います。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[スマホアプリを新規作成したらいくらかかる？ #モバイル見積もり 勉強会に行ってきました]]></title>
