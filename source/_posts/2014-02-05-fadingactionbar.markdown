@@ -25,7 +25,7 @@ ActionBarの領域をフェードできるライブラリ
 
 ### 動作イメージ
 
-スクロールすると指定した色にActionBarがフェードします。ファーストビューでコンテンツを大きく見せられます。
+　スクロールすると指定した色にActionBarがフェードします。ファーストビューでコンテンツを大きく見せられます。
 
 <img src="/images/2014-02-05-fadingactionbar/01.jpg" width="200px"/>
 <img src="/images/2014-02-05-fadingactionbar/02.jpg" width="200px"/>
