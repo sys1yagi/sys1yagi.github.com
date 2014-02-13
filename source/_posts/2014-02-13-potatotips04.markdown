@@ -1,0 +1,118 @@
+---
+layout: post
+title: "第4回 #potatotips で発表されたAndroidの8つのtipsまとめ"
+date: 2014-02-13 09:22:26 +0900
+comments: true
+categories: android potatotips
+---
+
+毎月恒例のpotatoips第四回が開催されましたー。
+
+[potatotips (iOS/Android開発Tips共有会) 第4回](https://github.com/potatotips/potatotips/wiki/potatotips-4)
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p><a href="https://twitter.com/search?q=%23potatotips&amp;src=hash">#potatotips</a> <a href="https://t.co/RyMjBl2dgD">https://t.co/RyMjBl2dgD</a> <a href="http://t.co/vlOp1qXZUT">pic.twitter.com/vlOp1qXZUT</a></p>&mdash; レジャスポ太郎 (@rejasupotaro) <a href="https://twitter.com/rejasupotaro/statuses/433539924684320768">February 12, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+iOSのtipsまとめは[@himara2](https://twitter.com/himara2)さんが[第4回 #potatotips で発表されたiOSに関する9つのtips](http://himaratsu.hatenablog.com/entry/potatotips4)にまとめて下さっています。
+
+ここでは発表されたAndroidの8つのtipsをまとめます。
+
+<!-- more -->
+
+##	1.ProductFlavorの自動化に関するTips
+発表者:[@ichigotake](https://twitter.com/ichigotake)
+
+発表資料 Gist->[https://gist.github.com/ichigotake/8952787](https://gist.github.com/ichigotake/8952787)
+
+ProductFlavorではパッケージ名依存のパーミッションの適用ができない。
+例えば以下の様なproviderのauthoritiesにパッケージ名を使う場合、ProductFlavorでflavor毎にパッケージ名を変えていたら腐ってしまう。
+
+```
+<provider
+    name=".MyProvider"
+    authorities="com.example.free">
+```
+
+どうするか！？自動化してもいいと思うが、まぁ手動でflavor毎のAndroidManifest.xml用意でいいかー的な。
+確かに手動でもよさそう。Lintみたいなのがあると捗るかもなー
+
+##	2.GitHub活動を通して個人のキャリアを積みつつ仕事の成果を出したい(震え声)
+発表者:[@rejasupotaro](https://twitter.com/rejasupotaro)
+
+発表資料: ブログ->[How to build a career through github activities](http://rejasupotaro.github.io/2014/02/11/36.html)
+
+<script async class="speakerdeck-embed" data-id="d07deda0755701312eb91a125ab0a9e4" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+先日行われた[Conference With Developers 2](http://confwd2.peatix.com/)で[@ninjinkun](https://twitter.com/ninjinkun)さんが発表したいい話を共有！
+
+1. 試しやすくする
+2. 組み込みやすくする
+	githubにmavenのrepositoryとして使える様にする
+3. 品質を高める
+4. 表現を工夫する
+5. 広報
+
+全体的に同意で一部やっている。Wercker使おうっと。
+
+##	3.アプリの評価を良くするということについて考える･続
+発表者:[@hotchemi](https://twitter.com/hotchemi)
+
+<script async class="speakerdeck-embed" data-id="7330ea20757e0131f8d9163615956c67" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+[@rejasupotaro](https://twitter.com/rejasupotaro)氏の[アプリの評価を良くするということについて考える](http://rejasupotaro.github.io/2014/01/16/29.html)のつづきで、評価を促す施策を個人的に試してみた話し。
+
+あと[Android-Rate](https://github.com/hotchemi/Android-Rate)ってライブラリを作ったよという話。チラ見した感じいい感じな気がする。
+
+##	4.AndroidGradlePlugin(0.7.3以降)でndk-buildする方法
+発表者:[@androhi](https://twitter.com/androhi)
+
+[NFC Hacks](http://www.amazon.co.jp/dp/4873116244)の著者のひとり！！
+AndroidStudioでNDK使う話。AndroidGradlePluginは今0.8系で、ちょい前にNDKが対応された。
+
+<script async class="speakerdeck-embed" data-id="2c57b50075b40131f0be026a5a2b7ed1" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+ProductFlavorでABI毎にapk分けたりもできる。便利。ASにC/C++書く環境が揃ってないんでコード書くのはつらぽ。個人的にはIntelliJ Ultimateでいいんじゃないかを感じている。
+
+##	5.ListView/ViewHolderのベストプラクティスを考えてみた
+発表者:[@__gfx__](https://twitter.com/__gfx__)
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/31118486" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/gorof/generationg-viewholder-pattern-with-gradle" title="Generationg ViewHolder pattern with Gradle" target="_blank">Generationg ViewHolder pattern with Gradle</a> </strong> from <strong><a href="http://www.slideshare.net/gorof" target="_blank">Goro Fuji</a></strong> </div>
+
+Gradleでビルド前に割り込んでlayout.xmlを解析し、ソースコード生成をしてViewHolderを勝手に作る！
+しかし！layout.xmlには罠があった！重複するidやincludeとかなんとか！単純なコードでは成立しない→つらい
+俺達の戦いはまだ始まったばかりだ！
+
+これ実現すると色々楽になるよなーという気がする。
+
+
+##	6.The end of confusion of callback between activity and fragment.
+発表者:[@sys1yagi](https://twitter.com/sys1yagi)
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/31119281" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/bs_yagi/04-31119281" title="Potato04 The end of confusion of callback between activity and fragment." target="_blank">Potato04 The end of confusion of callback between activity and fragment.</a> </strong> from <strong><a href="http://www.slideshare.net/bs_yagi" target="_blank">Toshihiro Yagi</a></strong> </div>
+
+ActivityとFragment間の連携ってなんか考慮ポイント多くてだるいですよね。という事でそういうのを解決する軽量シンプルお手軽なライブラリを作りました。
+
+[GitHub - indirect-injector](https://github.com/sys1yagi/indirect-injector)
+
+GitHub活動を通して個人のキャリアを積みつつ仕事の成果を出したいのでサンプルやREADMEの充実など色々やっていきたい。
+
+## 7.AndroidのExtarnalStorageまとめ
+発表者:[@mhidaka](https://twitter.com/mhidaka)
+
+発表資料: ブログ->[AndroidのExternal Storageの開発者向けまとめ](http://d.hatena.ne.jp/hdk_embedded/20140212/1392206381)
+
+Kitkat以降でSDカード使えないんじゃ問題へのわかりやすい解説。Externalは外部じゃなくて「拡張」だ！！！
+各OSバージョンでのExternal Storageに関する神比較表が。これは超はかどる。
+
+あとEffective iOS書こうぜ！というお話も。書きましょう！
+
+## 8.EspressoのUsageTrackerについて
+発表者:[@sumio_tym](https://twitter.com/sumio_tym)
+
+<script async class="speakerdeck-embed" data-id="218646a076210131f9bd26949f98b546" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+Espressoは実行時に利用統計の様なものを外部送信するけど新しくTestRunnerでくるんでdisableAnalytics=trueすれば防げるぜという話。
+
+## まとめ
+
+だんだん濃くなっている気がする。ぽてち駆動で新ライブラリの登場パターンが増えてきている。ハードル高まっている！もちろんもっとカジュアルでもいいのよ！！皆さんのおいしいぽてちをお待ちしています！
