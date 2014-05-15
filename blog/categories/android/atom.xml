@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | visible true]]></title>
   <link href="http://sys1yagi.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://sys1yagi.github.io/"/>
-  <updated>2014-02-13T12:59:47+09:00</updated>
+  <updated>2014-05-15T22:58:56+09:00</updated>
   <id>http://sys1yagi.github.io/</id>
   <author>
     <name><![CDATA[Toshihiro Yagi]]></name>
@@ -12,6 +12,148 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DeNA開催! potatotips #7に参加してきました for Android]]></title>
+    <link href="http://sys1yagi.github.io/blog/2014/05/15/potatotips-07/"/>
+    <updated>2014-05-15T19:22:16+09:00</updated>
+    <id>http://sys1yagi.github.io/blog/2014/05/15/potatotips-07</id>
+    <content type="html"><![CDATA[<p>第7回となる #potatotips に参加させて頂きました。
+今回は株式会社DeNA＠渋谷ヒカリエでの開催でした。 <a href="https://github.com/potatotips/potatotips/wiki/Potatotips-7">https://github.com/potatotips/potatotips/wiki/Potatotips-7</a></p>
+
+<p><img src="/images/2014-05-15-potatotips-07/01.jpg" alt="top" /></p>
+
+<p>potatotipsは発表者だけが参加できる、持ち時間1人5分のtips共有会です。そんな第7回で発表された11個のAndroidのtipsをまとめます！</p>
+
+<!-- more -->
+
+
+<h2>Power Assertを知っているか</h2>
+
+<p>発表者:<a href="https://twitter.com/__gfx__">@<strong>gfx</strong></a></p>
+
+<p>Androidでもjavaのassert文が使えるんだけどデフォルトでoff。失敗した時の情報に乏しいのであんまり使えない。
+そこでPower Assert！ Power AssertはAssertionが失敗した時に関係する値をいい感じに表示できる。Groovyではこれが言語機能として組み込まれている。その他にjavascriptなどにもそういうライブラリある。</p>
+
+<p>ないので<a href="">作った</a>！！！maven centralにも公開しているのでdependenciesを拝承するだけで使える！内部的にはJavassistを使ってclassファイルを書き換えるアプローチでやっている。</p>
+
+<p>TODO :資料:</p>
+
+<p>捗るのでぜひ導入したい。</p>
+
+<h2>趣味プログラマな非エンジニアにアプリ開発を教える Android</h2>
+
+<p>発表者:<a href="https://twitter.com/ichigotake">@ichigotake</a></p>
+
+<p>趣味プログラマのアプリを作りたいという人向けにAndroidを教える話。</p>
+
+<p>TODO :資料:</p>
+
+<h2>Androidのアニメーションしょぼくない</h2>
+
+<p>発表者:<a href="https://twitter.com/kaa">@kaa</a></p>
+
+<p>Androidだせーよなー？うるせー！！！いい感じに出来るよ！おら！</p>
+
+<p>TODO :資料:</p>
+
+<p>動画を使う！！ずるくない！むしろコレ向けに動画作れる人が少なかったり、あるいはそういう発想にならなくて逃していた部分もあるのかもとおもった。</p>
+
+<h2>Androidエンジニアの憂鬱</h2>
+
+<p>発表者:里山さん</p>
+
+<p>漢は黙ってMaven Centralだ！そしてドヤ顔しよう！そしてリア充になろう！</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/34717090" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/nsface/potatotips" title="Potatotips_7" target="_blank">Potatotips_7</a> </strong> from <strong><a href="http://www.slideshare.net/nsface" target="_blank">南人 里山</a></strong> </div></p>
+
+<p>確かにその通りで僕も近日Maven Centralに拝承するつもりです。でも話聞いてるだけで心折れそう。</p>
+
+<h2>いまさら Travis-CI</h2>
+
+<p>発表者:<a href="https://twitter.com/dagezi">@dagezi</a></p>
+
+<p>Travis CIやらないとね！AndroidがTravis CIの一級β市民になったらしい！。TravisでAndroidのテストが激簡単に回せる！</p>
+
+<p><a href="http://dagezi.github.io/potatotips7/#/"/><a href="http://dagezi.github.io/potatotips7/#/">http://dagezi.github.io/potatotips7/#/</a></a></p>
+
+<p>うーむ。個人ではWercker使ってるんだけど揺らぐけどやっぱWerckerかな！もっと競争激しくなっていい感じになって欲しい！</p>
+
+<h2>テスト、考えてますか？</h2>
+
+<p>発表者:<a href="https://twitter.com/Kazu_cocoa">@Kazu_cocoa</a></p>
+
+<p>説教LT。テスト考えてる？ねえ考えてる？ほんとに？ほんとに考えてる？開発と私どっちが大事なの？</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/34717582" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/KazuMatsu/potatotips-7-20140515" title="Potatotips 7 20140515 での話し" target="_blank">Potatotips 7 20140515 での話し</a> </strong> from <strong><a href="http://www.slideshare.net/KazuMatsu" target="_blank">Kazuaki MATSUO</a></strong> </div></p>
+
+<p>テストが大事に決まってるじゃん。君が一番だよ(震え声)。
+実際マジで大事で、価値を作りこむのにテスト無しでは考えられないわけで。カウボーイコーディングでは何とか動く所までしか到れないしその先に進むには膨大な時間がかかってしまう事になる。マジテストしますよマジで。</p>
+
+<h2>ぼくのビルドはにゃあとなく</h2>
+
+<p>発表者:<a href="https://twitter.com/tomorrowkey">@tomorrowkey</a></p>
+
+<p>年収低いとマンション買っちゃいけないよねー。それもこれもGradleのビルドが糞遅いからだ！！</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/34718053" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+
+<p> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/tomorrowkey/ss-34718053" title="ぼくのビルドはにゃあとなく" target="_blank">ぼくのビルドはにゃあとなく</a> </strong> from <strong><a href="http://www.slideshare.net/tomorrowkey" target="_blank">Tomoki YAMASHITA</a></strong> </div></p>
+
+<p>ぜひ使いたい(真顔)。</p>
+
+<h2>ノハナのアプリを爆速で動くようにした話</h2>
+
+<p>発表者:<a href="https://twitter.com/KeithYokoma">@KeithYokoma</a></p>
+
+<p>Parse(MBaaS)と上手に付き合う話。Parse SDKは非同期処理が簡単に扱えて楽。しかしわりとナイーブでバンバン死んだりする事があったり結構たいへん。</p>
+
+<script async class="speakerdeck-embed" data-id="333d3420be28013191822a9c30b9cc56" data-ratio="1.33333333333333" src="http://sys1yagi.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>Parse SDKの非同期ややめる、ParseObjectの継承はやめる。レイヤ管理をしましょう。うーむ。なんかもっとカジュアルなMBaaSないかなぁ。</p>
+
+<h2>Faucet ~Fight against memory leak~</h2>
+
+<p>発表者:<a href="https://twitter.com/sys1yagi">@sys1yagi</a></p>
+
+<p>メモリリークとの戦い。</p>
+
+<script async class="speakerdeck-embed" data-id="b0895ee0be3301313e6c7a86bf9f6a20" data-ratio="1.33333333333333" src="http://sys1yagi.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>飽きなければ暫く色々作るよ。</p>
+
+<h2>レトロラムダはどれ程モダンか   Android</h2>
+
+<p>発表者:<a href="https://twitter.com/rejasupotaro">@rejasupotaro</a></p>
+
+<p>Java8のバックポーティングツールだよ！</p>
+
+<script async class="speakerdeck-embed" data-id="76bd3870be1901313e6c7a86bf9f6a20" data-ratio="1.33333333333333" src="http://sys1yagi.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>うーむ。java8正式サポートを待つかgoがAndroidの開発言語になるのを待つかな。あるいはKotlinでいいかな。</p>
+
+<h2>Progress Implementations</h2>
+
+<p>発表者:<a href="https://twitter.com/hotchemi">@hotchemi</a></p>
+
+<p>Maven Central先輩！ProgressFragmentは便利。でも実装が重めな気がする。MenuItem部分にプログレスを出すやつと結構いい感じ。それをライブラリにしたよ！</p>
+
+<script async class="speakerdeck-embed" data-id="00102120bdf701313e6b7a86bf9f6a20" data-ratio="1.33333333333333" src="http://sys1yagi.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>この辺は使い分けだなー。更にその先の世界がありそうだ。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[第4回 #potatotips で発表されたAndroidの8つのtipsまとめ]]></title>
@@ -100,7 +242,7 @@ AndroidStudioでNDK使う話。AndroidGradlePluginは今0.8系で、ちょい前
 <script async class="speakerdeck-embed" data-id="2c57b50075b40131f0be026a5a2b7ed1" data-ratio="1.33333333333333" src="http://sys1yagi.github.io//speakerdeck.com/assets/embed.js"></script>
 
 
-<p>ProductFlavorでABI毎にapk分けたりもできる。便利。ASにC/C++書く環境が揃ってないんでコード書くのはつらぽ。故事的にはIntelliJ Ultimateでいいんじゃないかを感じている。</p>
+<p>ProductFlavorでABI毎にapk分けたりもできる。便利。ASにC/C++書く環境が揃ってないんでコード書くのはつらぽ。個人的にはIntelliJ Ultimateでいいんじゃないかを感じている。</p>
 
 <h2>5.ListView/ViewHolderのベストプラクティスを考えてみた</h2>
 
@@ -761,121 +903,6 @@ rootの件は、たとえばDNS設定は2.xではふつーに書き換えられ�
 <p>とかがよさ気なのかなという話。</p>
 
 <p><a href="http://square.github.io/retrofit/">Retrofit</a>知らなかったSquareまじｶｯｹｰ。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Parcelableを自動生成する]]></title>
-    <link href="http://sys1yagi.github.io/blog/2014/01/13/parcel-generator/"/>
-    <updated>2014-01-13T12:28:21+09:00</updated>
-    <id>http://sys1yagi.github.io/blog/2014/01/13/parcel-generator</id>
-    <content type="html"><![CDATA[<p>ParcelableはSerializableより制約が少なくていいんですが自分で直列化処理を書かないといけないのでだるいです。</p>
-
-<p>Android Studioで利用できるプラグイン「<a href="https://github.com/mcharmas/android-parcelable-intellij-plugin">Android Parcelable code generator</a>」を使えば簡単にParcelableを自動生成できます。</p>
-
-<!-- more -->
-
-
-<h2>インストール</h2>
-
-<p>Android Studioを起動して、[Preference]&ndash;[Plugins]を開き、<code>Browse repositories…</code>を押下してください。</p>
-
-<p><img src="/images/2014-01-08-android-selector-chapek/01.png" alt="01" /></p>
-
-<p>Browse Repositoriesで<code>parcelable code gen</code>で絞り込むとpluginが見つかるので、ダブルクリックしてインストールしてください。</p>
-
-<p><img src="/images/2014-01-13-parcel-generator/01.png" alt="02" /></p>
-
-<h2>対象クラスを作る</h2>
-
-<p>Parcelableにしたいクラスを作っていきます。よくあるUserクラスとかにしておきます。</p>
-
-<p>```java
-package com.example.app;</p>
-
-<p>public class User {</p>
-
-<p>  private int mId;</p>
-
-<p>  private String mName;</p>
-
-<p>  public User(int id, String name){</p>
-
-<pre><code>mId = id;
-mName = name;
-</code></pre>
-
-<p>  }</p>
-
-<p>}
-```</p>
-
-<h2>Parcelableを生成する</h2>
-
-<p>エディタの中で右クリックするとコンテキストメニューに「Generate&hellip;」があるので選択します。</p>
-
-<p><img src="/images/2014-01-13-parcel-generator/02.png" alt="03" /></p>
-
-<p>Generateの項目のうち「Generate Parcelable」を選択します。</p>
-
-<p><img src="/images/2014-01-13-parcel-generator/03.png" alt="04" /></p>
-
-<p>Parcelableで保存する対象となるフィールドを選択します。基本的に全部選択しておけばよいでしょう。</p>
-
-<p><img src="/images/2014-01-13-parcel-generator/04.png" alt="05" /></p>
-
-<p>するとParcelableの実装が生成されます。</p>
-
-<p>```java
-package com.example.app;</p>
-
-<p>import android.os.Parcel;
-import android.os.Parcelable;</p>
-
-<p>public class User implements Parcelable {</p>
-
-<pre><code>private int mId;
-
-private String mName;
-
-public User(int id, String name){
-    mId = id;
-    mName = name;
-}
-
-@Override
-public int describeContents() {
-    return 0;
-}
-
-@Override
-public void writeToParcel(Parcel dest, int flags) {
-    dest.writeInt(this.mId);
-    dest.writeString(this.mName);
-}
-
-private User(Parcel in) {
-    this.mId = in.readInt();
-    this.mName = in.readString();
-}
-
-public static Parcelable.Creator&lt;User&gt; CREATOR = new Parcelable.Creator&lt;User&gt;() {
-    public User createFromParcel(Parcel source) {
-        return new User(source);
-    }
-
-    public User[] newArray(int size) {
-        return new User[size];
-    }
-};
-</code></pre>
-
-<p>}
-```</p>
-
-<h2>おわりに</h2>
-
-<p>楽ちん！</p>
 ]]></content>
   </entry>
   
